@@ -1,4 +1,5 @@
 from art import logo
+from art import vs
 from game_data import data
 import os
 import random
@@ -13,17 +14,10 @@ def star_selected(exception):
 
 def star_display(star_A, star_B):
     print(f"Compare A: {data[star_A]['name']}, a {data[star_A]['description']}, from {data[star_A]['country']}")
-    print(""" 
-     _    __    
-    | |  / /____
-    | | / / ___/
-    | |/ (__  ) 
-    |___/____(_)""")
+    print(vs)
     print(f"Against B: {data[star_B]['name']}, a {data[star_B]['description']}, from {data[star_B]['country']}")
 
 def judgment(star_more, star_less, score):
-    os.system('clear')
-    print(logo)
     if data[star_more]['follower_count'] >= data[star_less]['follower_count']:
         score+=1
         game_end=False
@@ -49,6 +43,8 @@ def main():
         guess = ""
         while not (guess in ('a','b')):
             guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+        os.system('clear')
+        print(logo)
         if guess == "a":
             score,game_end = judgment(star_A, star_B, score)
         else:
