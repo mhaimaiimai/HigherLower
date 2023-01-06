@@ -47,9 +47,9 @@ def main():
 
         #ask
         guess = ""
-        while not (guess in ('A','B')):
-            guess = input("Who has more followers? Type 'A' or 'B': ")
-        if guess == "A":
+        while not (guess in ('a','b')):
+            guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+        if guess == "a":
             score,game_end = judgment(star_A, star_B, score)
         else:
             score,game_end = judgment(star_B, star_A, score)
